@@ -5,6 +5,7 @@ import { GET_PEOPLE } from '../../queries'
 import { List } from 'antd'
 
 import Person from '../listItems/Person'
+import PersonBoat from './PersonBoat'
 
 const getStyles = () => ({
   list: {
@@ -20,6 +21,7 @@ const People = () => {
   if (loading) return 'Loading...'
   if (error) return `Errror! ${error.message}`
   return (
+    <section>
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
       {data.people.map(({ id, firstName, lastName }) => (
         <List.Item key={id}>
@@ -27,6 +29,8 @@ const People = () => {
         </List.Item>
       ))}
     </List>
+    <PersonBoat />
+    </section>
   )
 }
 

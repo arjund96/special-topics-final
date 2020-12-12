@@ -1,10 +1,9 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
-import { GET_BOAT } from '../../queries'
+import { GET_BOAT } from '../../queries/index'
 
 import { List } from 'antd'
 
-import Boat from '../listItems/Boat'
 
 const getStyles = () => ({
   list: {
@@ -26,7 +25,7 @@ const PersonBoat = () => {
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
       {data.personBoat.map(({ id, year, make,  model, price , personId}) => (
         <List.Item key={id}>
-          {/*<Boat key={id} id={id} year={year} make={make} model={model} price={price} personId={personId} />*/}
+          {/* <Boat key={id} id={id} year={year} make={make} model={model} price={price} personId={personId} /> */}
         </List.Item>
       ))}
     </List>
