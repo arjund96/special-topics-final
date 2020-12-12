@@ -41,16 +41,16 @@ export const REMOVE_PERSON = gql`
 `
 
 export const GET_BOAT = gql`
-  {
-    boat {
-      id
-      year
-      make
-      model
-      price
-      personId
+  query PersonBoat( $personId: String! ) {
+        PersonBoat ( personId: $personId ) {
+            id
+            year
+            make
+            model
+            price
+            personId
+        }
     }
-  }
 `
 
 export const ADD_BOAT = gql`

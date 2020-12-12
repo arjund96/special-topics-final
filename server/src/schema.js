@@ -132,10 +132,10 @@ const resolvers = {
   Query: {
     people: () => people,
     boats: () => boats,
-    person(parent,args,context,info) {
+    person: (parent,args,context,info) => {
       return find(people, {id: args.id})
     },
-    boat(parent,args,context,info) {
+    boat: (parent,args,context,info) => {
       return find(boats, {id: args.id})
     },
     personBoat(parent,args,context,info) {
@@ -186,7 +186,7 @@ const resolvers = {
       return newBoat
     },
     updateBoat: (root, args) => {
-      const boat = find(boat, { id: args.id, personId: args.personId })
+      const boat = find(boat, { id: args.id })
       if (!boat) {
         throw new Error(`Couldn't find boat with id ${args.id}`)
       }
@@ -200,7 +200,7 @@ const resolvers = {
       return boat
     },
     removeBoat: (root, args) => {
-      const removedBoat = find(boats, { id: args.id, personId: args.personId })
+      const removedBoat = find(boats, { id: args.id })
       if (!removedBoat) {
         throw new Error(`Couldn't find boat with id ${args.id}`)
       }
